@@ -62,9 +62,8 @@ const putContact = asyncHandler(async (req, res) => {
 // @desc Delete specific contact
 // @route Delete /api/contacts/:id
 // @access public
-const deleteContact = asyncHandler(async (req, res) => { // why is this :id and not id
-    const contact = await Contact.findById(req.params.id);
-    console.log("in delete, contact: ", contact);
+const deleteContact = asyncHandler(async (req, res) => {
+    const contact = await Contact.findById(req.params.id);    
     if (!contact) {
         res.status(400);
         throw new Error("Contact not found");
